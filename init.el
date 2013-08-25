@@ -5,12 +5,16 @@
 ;(prefer-coding-system 'utf-8)
 ;'(buffer-encoding (quote utf-8))
 '(recentf-mode t)
-'(transient-mark-mode t)
+'(transient-mark-mode t) 
+
+(setq stack-trace-on-error t)
 
 ;(set-default-font "Bitstream Vera Sans Mono-10")
 ;(set-fontset-font (frame-parameter nil 'font)
 ;  'han '("cwTeXHeiBold" . "unicode-bmp"))
+ (load-file "~/.emacs.d/emacs-for-python/epy-init.el")
 
+;;(require 'magit) 
 (setq make-backup-files nil)
 (setq query-replace-highlight t)
 (setq search-highlight t)
@@ -40,7 +44,8 @@
 
 ;; Get rid of toolbar, scrollbar, menubar
 (progn
-  (tool-bar-mode)
+
+;;  (tool-bar-mode)
 ;  (menu-bar-mode)
   (scroll-bar-mode))
 
@@ -168,10 +173,10 @@ LIST defaults to all existing live buffers."
 ;; See cedet/common/cedet.info for configuration details.
 (load-file "~/.emacs.d/plugins/cedet/common/cedet.el")
 ; Enable EDE (Project Management) features
-;(global-ede-mode 1)
+(global-ede-mode 1)
 ;; * This enables the database and idle reparse engines
-;(semantic-load-enable-minimum-features)
-;(setq semantic-load-turn-everything-on t)
+(semantic-load-enable-minimum-features)
+(setq semantic-load-turn-everything-on t)
 
 
 ;; ecb
@@ -181,12 +186,15 @@ LIST defaults to all existing live buffers."
 (setq ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
 (ecb-activate)
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(ecb-layout-window-sizes (quote (("left8" (ecb-directories-buffer-name 0.23671497584541062 . 0.29310344827586204) (ecb-sources-buffer-name 0.23671497584541062 . 0.22413793103448276) (ecb-methods-buffer-name 0.23671497584541062 . 0.25862068965517243) (ecb-history-buffer-name 0.23671497584541062 . 0.20689655172413793)))))
- '(ecb-options-version "2.40"))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(delete-selection-mode nil)
+ '(ecb-options-version "2.40")
+ '(mark-even-if-inactive t)
+ '(scroll-bar-mode (quote right))
+ '(transient-mark-mode 1))
 ;; resize the windows on emacs and run ecb-store-window-sizes
 ; '(show-paren-mode t))
 
@@ -569,9 +577,12 @@ makes)."
 ;(kill-buffer "*Messages*")
 
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
+(add-to-list 'load-path "~/.emacs.d/plugins/magit")
+(require 'magit)
+;;(load-file "~/.emacs.d/plugins/magit/magit.el")
